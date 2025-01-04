@@ -5,3 +5,7 @@ server:
 spring:
   application:
     name: pulley-api
+
+  profiles:
+    include:
+      - persistence

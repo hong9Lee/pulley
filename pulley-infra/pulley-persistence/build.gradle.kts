@@ -14,13 +14,18 @@ val bootJar: BootJar by tasks
 bootJar.enabled = false
 jar.enabled = true
 
+val flywayVersion by extra { "10.4.1" }
 dependencies {
     implementation(project(":pulley-support"))
 
     /** database */
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("com.h2database:h2")
+    runtimeOnly("com.h2database:h2")
+
+    /** flyway */
+    implementation("org.flywaydb:flyway-core:$flywayVersion")
+    implementation("org.flywaydb:flyway-mysql:$flywayVersion")
 
     /** test */
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
