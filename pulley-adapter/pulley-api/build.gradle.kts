@@ -15,11 +15,15 @@ bootJar.enabled = true
 jar.enabled = false
 
 dependencies {
+    implementation(project(":pulley-application:pulley-core"))
+    implementation(project(":pulley-infra:pulley-persistence"))
+    implementation(project(":pulley-support"))
+
     /** libs */
     implementation("org.springframework.boot:spring-boot-starter-web")
-
 
     /** test */
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

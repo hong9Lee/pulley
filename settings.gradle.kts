@@ -8,3 +8,6 @@ include("pulley-application:pulley-core")
 
 // infra
 include("pulley-infra:pulley-persistence")
+
+// support
+include("pulley-support")

@@ -11,10 +11,18 @@ plugins {
 val jar: Jar by tasks
 val bootJar: BootJar by tasks
 
-bootJar.enabled = true
-jar.enabled = false
+bootJar.enabled = false
+jar.enabled = true
 
 dependencies {
+    implementation(project(":pulley-support"))
+
+    /** database */
+    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("com.h2database:h2")
+
+    /** test */
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
