@@ -1,10 +1,10 @@
-package com.task.pulley
+package com.task.pulleycore
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class PulleyApplicationTests {
+class PulleyCoreApplicationTests {
 
     @Test
     fun contextLoads() {
