@@ -16,6 +16,7 @@ jar.enabled = true
 
 val flywayVersion by extra { "10.4.1" }
 dependencies {
+    implementation(project(":pulley-application:pulley-core"))
     implementation(project(":pulley-support"))
 
     /** database */
