@@ -1,11 +1,11 @@
-package com.task.pulleycore.domain.user
+package com.task.pulleycore.domain
 
-import com.task.pulleycore.domain.enums.UserRole
+import com.task.pulleycore.domain.enums.UserRoleType
 import com.task.pulleycore.domain.support.EntityId
 
-data class User(
+data class Users(
     val seq: Long? = null,
     val userId: EntityId,
     val username: String,
-    val role: UserRole
+    val role: UserRoleType
 )
