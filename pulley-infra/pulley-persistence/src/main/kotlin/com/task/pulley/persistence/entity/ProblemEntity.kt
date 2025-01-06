@@ -2,6 +2,7 @@ package com.task.pulley.persistence.entity
 
 import com.task.pulley.core.domain.Problem
 import com.task.pulley.core.domain.enums.ProblemType
+import com.task.pulley.core.domain.enums.UnitCodeType
 import com.task.pulley.core.domain.support.EntityId
 import com.task.pulley.persistence.entity.base.BaseTimeEntity
 import jakarta.persistence.*
@@ -18,7 +19,8 @@ class ProblemEntity(
     val pieceId: EntityId,
 
     @Column(name = "unit_code")
-    val unitCode: String,
+    @Enumerated(EnumType.STRING)
+    val unitCode: UnitCodeType,
 
     @Column(name = "level")
     val level: Int,
