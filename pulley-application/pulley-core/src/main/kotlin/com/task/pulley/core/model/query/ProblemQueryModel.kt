@@ -6,7 +6,6 @@ import com.task.pulley.core.domain.support.EntityId
 
 data class ProblemQueryModel(
     val problemId: EntityId,
-    val pieceId: EntityId,
     val unitCode: UnitCodeType,
     val level: Int,
     val problemType: ProblemType,

@@ -46,7 +46,6 @@ class ProblemQueryRepository(
             Projections.constructor(
                 ProblemQueryResult::class.java,
                 problemEntity.problemId,
-                problemEntity.pieceId,
                 problemEntity.unitCode,
                 problemEntity.level,
                 problemEntity.problemType,

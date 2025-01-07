@@ -7,4 +7,5 @@ data class Piece(
     val pieceId: EntityId,
     val teacherId: EntityId,
     val name: String,
+    val problemIds: List<String>
 )

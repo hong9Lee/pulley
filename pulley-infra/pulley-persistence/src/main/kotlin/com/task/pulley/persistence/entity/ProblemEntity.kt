@@ -14,10 +14,6 @@ class ProblemEntity(
     @AttributeOverride(name = "value", column = Column(name = "problem_id"))
     private val problemId: EntityId,
 
-    @Embedded
-    @AttributeOverride(name = "value", column = Column(name = "piece_id"))
-    val pieceId: EntityId,
-
     @Column(name = "unit_code")
     @Enumerated(EnumType.STRING)
     val unitCode: UnitCodeType,
@@ -38,7 +34,6 @@ class ProblemEntity(
         fun of(problem: Problem): ProblemEntity {
             return ProblemEntity(
                 problem.problemId,
-                problem.pieceId,
                 problem.unitCode,
                 problem.level,
                 problem.problemType,
@@ -50,7 +45,6 @@ class ProblemEntity(
     fun toDomain(): Problem {
         return Problem(
             problemId = this.problemId,
-            pieceId = this.pieceId,
             unitCode = this.unitCode,
             level = this.level,
             problemType = this.problemType,

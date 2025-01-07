@@ -21,6 +21,8 @@ dependencies {
 
     /** libs */
     implementation("org.springframework.boot:spring-boot-starter-web")
+    /** valid */
+    implementation("org.springframework.boot:spring-boot-starter-validation")
 
     /** test */
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")

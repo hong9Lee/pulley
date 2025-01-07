@@ -8,7 +8,6 @@ import com.task.pulley.core.model.query.ProblemQueryModel
 
 data class ProblemQueryResult @QueryProjection constructor(
     val problemId: EntityId,
-    val pieceId: EntityId,
     val unitCode: UnitCodeType,
     val level: Int,
     val problemType: ProblemType,
@@ -17,7 +16,6 @@ data class ProblemQueryResult @QueryProjection constructor(
     fun toModel(): ProblemQueryModel {
         return ProblemQueryModel(
             problemId = problemId,
-            pieceId = pieceId,
             unitCode = unitCode,
             level = level,
             problemType = problemType,

@@ -17,9 +17,13 @@ jar.enabled = true
 
 val flywayVersion by extra { "10.4.1" }
 val queryDslVersion by extra { "5.1.0" }
+val commonsLang3Version by extra { "3.12.0" }
 dependencies {
     implementation(project(":pulley-application:pulley-core"))
     implementation(project(":pulley-support"))
+
+    /** libs */
+    implementation("org.apache.commons:commons-lang3:$commonsLang3Version")
 
     /** database */
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
