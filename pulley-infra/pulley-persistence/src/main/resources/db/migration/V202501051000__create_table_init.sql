@@ -38,6 +38,7 @@ CREATE TABLE piece_assignment
     seq           bigint auto_increment comment '학습지 제출 시퀀스' primary key,
     assignment_id VARCHAR(50) NOT NULL,
     piece_id      VARCHAR(50) NOT NULL,
+    teacher_id    VARCHAR(50) NOT NULL,
     student_id    VARCHAR(50) NOT NULL,
     status        VARCHAR(20) NOT NULL,
     reg_date_time datetime(6) null comment '등록일자',

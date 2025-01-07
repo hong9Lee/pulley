@@ -1,6 +1,7 @@
 package com.task.pulley.persistence.entity
 
 import com.task.pulley.core.domain.PieceAssignment
+import com.task.pulley.core.domain.enums.AssignStatus
 import com.task.pulley.core.domain.support.EntityId
 import com.task.pulley.persistence.entity.base.BaseTimeEntity
 import jakarta.persistence.*
@@ -17,11 +18,16 @@ class PieceAssignmentEntity(
     val pieceId: EntityId,
 
     @Embedded
+    @AttributeOverride(name = "value", column = Column(name = "teacher_id"))
+    val teacherId: EntityId,
+
+    @Embedded
     @AttributeOverride(name = "value", column = Column(name = "student_id"))
     val studentId: EntityId,
 
     @Column(name = "status")
-    val status: String
+    @Enumerated(EnumType.STRING)
+    val status: AssignStatus
 ) : BaseTimeEntity() {
 
     companion object {
@@ -29,6 +35,7 @@ class PieceAssignmentEntity(
             return PieceAssignmentEntity(
                 assignment.assignmentId,
                 assignment.pieceId,
+                assignment.teacherId,
                 assignment.studentId,
                 assignment.status
             )
@@ -39,6 +46,7 @@ class PieceAssignmentEntity(
         return PieceAssignment(
             assignmentId = this.assignmentId,
             pieceId = this.pieceId,
+            teacherId = this.teacherId,
             studentId = this.studentId,
             status = this.status,
         )
