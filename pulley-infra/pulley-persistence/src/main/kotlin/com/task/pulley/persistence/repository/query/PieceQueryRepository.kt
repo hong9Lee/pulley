@@ -13,14 +13,21 @@ class PieceQueryRepository(
 ) : QuerydslSupport() {
 
     fun findByPieceIdAndTeacherId(pieceId: EntityId, teacherId: EntityId): Piece? {
-        val result = jpaQueryFactory
+        return jpaQueryFactory
             .selectFrom(pieceEntity)
             .where(
                 pieceEntity.pieceId.value.eq(pieceId.value),
                 pieceEntity.teacherId.value.eq(teacherId.value)
             )
-            .fetchOne()
+            .fetchOne()?.toDomain()
+    }
 
-        return result?.toDomain()
+    fun findByPieceId(pieceId: EntityId): Piece? {
+        return jpaQueryFactory
+            .selectFrom(pieceEntity)
+            .where(
+                pieceEntity.pieceId.value.eq(pieceId.value),
+            )
+            .fetchOne()?.toDomain()
     }
 }

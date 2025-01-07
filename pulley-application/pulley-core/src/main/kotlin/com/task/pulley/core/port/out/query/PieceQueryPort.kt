@@ -5,4 +5,5 @@ import com.task.pulley.core.domain.support.EntityId
 
 interface PieceQueryPort {
     fun findByPieceIdAndTeacherId(pieceId: EntityId, teacherId: EntityId): Piece
+    fun getProblemsByPieceId(pieceId: EntityId): Piece
 }

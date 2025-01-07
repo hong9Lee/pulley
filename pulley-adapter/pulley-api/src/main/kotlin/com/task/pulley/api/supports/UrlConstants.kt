@@ -5,5 +5,6 @@ class UrlConstants {
         const val 문제_조회 = "/problems"
         const val 학습지_생성 = "/piece"
         const val 학습지_제출 = "/piece/{pieceId}/assign"
+        const val 학습지_문제_조회 = "/piece/problems"
     }
 }

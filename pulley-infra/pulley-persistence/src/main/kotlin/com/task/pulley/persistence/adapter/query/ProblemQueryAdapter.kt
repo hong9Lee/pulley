@@ -2,6 +2,7 @@ package com.task.pulley.persistence.adapter.query
 
 import com.task.pulley.core.domain.enums.ProblemType
 import com.task.pulley.core.domain.enums.UnitCodeType
+import com.task.pulley.core.domain.support.EntityId
 import com.task.pulley.core.model.query.ProblemQueryModel
 import com.task.pulley.core.port.out.query.ProblemQueryPort
 import com.task.pulley.persistence.repository.query.ProblemQueryRepository
@@ -24,5 +25,9 @@ class ProblemQueryAdapter(
             problemTypes = problemTypes,
             limit = limit
         )
+    }
+
+    override fun getProblemByIds(ids: Set<EntityId>): List<ProblemQueryModel> {
+        return problemQueryRepository.findProblemsByIds(ids)
     }
 }

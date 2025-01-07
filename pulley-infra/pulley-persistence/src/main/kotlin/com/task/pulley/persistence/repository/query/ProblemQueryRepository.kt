@@ -5,6 +5,7 @@ import com.querydsl.core.types.Projections
 import com.querydsl.jpa.impl.JPAQueryFactory
 import com.task.pulley.core.domain.enums.ProblemType
 import com.task.pulley.core.domain.enums.UnitCodeType
+import com.task.pulley.core.domain.support.EntityId
 import com.task.pulley.core.model.query.ProblemQueryModel
 import com.task.pulley.persistence.entity.QProblemEntity.problemEntity
 import com.task.pulley.persistence.repository.query.result.ProblemQueryResult
@@ -55,6 +56,21 @@ class ProblemQueryRepository(
             .where(builder)
             .offset(randomOffset)
             .limit(limit.toLong())
+            .fetch()
+            .map { it.toModel() }
+    }
+
+    fun findProblemsByIds(ids: Set<EntityId>): List<ProblemQueryModel> {
+        return jpaQueryFactory.select(
+            Projections.constructor(
+                ProblemQueryResult::class.java,
+                problemEntity.problemId,
+                problemEntity.unitCode,
+                problemEntity.level,
+                problemEntity.problemType,
+                problemEntity.answer
+            )).from(problemEntity)
+            .where(problemEntity.problemId.`in`(ids))
             .fetch()
             .map { it.toModel() }
     }

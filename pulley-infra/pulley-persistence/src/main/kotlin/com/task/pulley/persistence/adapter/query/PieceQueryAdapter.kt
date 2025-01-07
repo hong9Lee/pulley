@@ -15,4 +15,9 @@ class PieceQueryAdapter(
         return pieceQueryRepository.findByPieceIdAndTeacherId(pieceId, teacherId)
             .let { it ?: throw IllegalArgumentException("학습지가 존재하지 않습니다. (pieceId: $pieceId, teacherId: $teacherId)") }
     }
+
+    override fun getProblemsByPieceId(pieceId: EntityId): Piece {
+        return pieceQueryRepository.findByPieceId(pieceId)
+            ?: throw IllegalArgumentException("학습지가 존재하지 않습니다: $pieceId")
+    }
 }
